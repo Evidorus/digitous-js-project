@@ -11,21 +11,42 @@ var grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 ];
 var rover = { 
-    direction : 'N',
+    direction : 'S',
     x : 0,
     y : 0,
  };
-function turnLeft (rover){}
-function turnRight (rover){
-    changement = { direction : 'E' };
-    return changement
-}
-console.log(rover)
-console.log(turnLeft(rover))
 
-function moveForward(rover){
-    changement = { x : 0 , y : 1}
-    return changement
+function turnRight([direction]){
+    if (direction === 'N'){
+        return direction = {direction : 'E'}
+    } 
+    if (direction === 'E'){
+        return direction = {direction : 'S'}
+    }
+    if (direction === 'S'){
+        return direction = {direction : 'W'}
+    }
+    if (direction === 'W'){
+        return direction = {direction : 'N'}
+    }  
 }
 
-console.log(moveForward(rover));
+function turnLeft([direction]){
+    if (direction === 'N'){
+        return direction = {direction : 'W'}
+    } 
+    if (direction === 'E'){
+        return direction = {direction : 'N'}
+    }
+    if (direction === 'S'){
+        return direction = {direction : 'E'}
+    }
+    if (direction === 'W'){
+        return direction = {direction : 'S'}
+    }  
+}
+
+
+
+console.log(turnRight(rover.direction))
+console.log(turnLeft(rover.direction))
