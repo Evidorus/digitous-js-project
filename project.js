@@ -10,9 +10,15 @@ var grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 ];
-var rover = { direction = N }
-function turnLeft (rover){
-    direction = S
+var rover = { 
+    direction : 'N',
+    x : 0,
+    y : 0,
+ };
+function turnLeft (rover){}
+function turnRight (rover){
+    changement = { direction : 'E' };
+    return changement
 }
-function turnRight (rover)
 console.log(rover)
+console.log(turnLeft(rover))
