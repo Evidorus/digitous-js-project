@@ -11,7 +11,7 @@ var grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 ];
 var rover = { 
-    direction : 'S',
+    direction : 'N',
     x : 0, // colonnes
     y : 0, // lignes
     travelLog : [],
@@ -72,33 +72,23 @@ function moveForward(rover){
         rover.x = rover.x - 1;
         return rover
     }
+    // console.log(rover.travelLog)
 }
 
 function pilotRover(string){
     for (var i = 0; i < string.length; i++){
-        if (string === 'l'){
-            console.log(turnLeft(rover));
+        if (string[i] === 'l'){
+            turnLeft(rover);
+            rover.travelLog.push('je tourne');
+        } else if (string[i] === 'r'){
+            turnRight(rover)
+            rover.travelLog.push('je troune');
+        } else if (string[i] === 'f'){
+            moveForward(rover)
+            rover.travelLog.push('javance');
+            
         }
-        if (string === 'r'){
-            console.log(turnRight(rover));
-        }
-        if (string === 'f'){
-            console.log(moveForward(rover));
-        }
-    }
-    // switch(string){
-    //     case 'l':
-    //         return console.log(turnLeft(rover));
-    //         break;
-    //     case 'r':
-    //         return console.log(turnRight(rover));
-    //         break;
-    //     case 'f':
-    //         return console.log(moveForward(rover));
-    //         break        
-    // }
+    }   
 }
-
-// console.log(turnRight(rover))
-// console.log(turnLeft(rover))
-console.log(pilotRover('f'));
+pilotRover('lr');
+console.log(rover);
