@@ -1,3 +1,6 @@
+var prompt = require("prompt");
+prompt.start();
+
 var grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -58,19 +61,28 @@ function turnLeft(rover){
 function moveForward(rover){
     if (rover.direction === 'N'){
         rover.y = rover.y + 1;
-        return rover
+        if (rover.y === -10 || rover.y === 1){
+            console.log('erreur, tu sort de la zone sécurisé !!')
+        } else return rover
     }
     if (rover.direction === 'E'){
         rover.x = rover.x + 1;
-        return rover
+        if (rover.x === 10 || rover.x === -1){
+            console.log('erreur, tu sort de la zone sécurisé !!')
+        } else return rover
     }
     if (rover.direction === 'S'){
         rover.y = rover.y - 1;
-        return rover
+        if (rover.y === -10 || rover.y === 1){
+            console.log('erreur, tu sort de la zone sécurisé !!')
+        } else return rover
     }
     if (rover.direction === 'W'){
         rover.x = rover.x - 1;
-        return rover
+        if (rover.x === 10 || rover.x === -1){
+            console.log('erreur, tu sort de la zone sécurisé !!')
+        } else return rover
+        
     }
     // console.log(rover.travelLog)
 }
@@ -78,17 +90,25 @@ function moveForward(rover){
 function pilotRover(string){
     for (var i = 0; i < string.length; i++){
         if (string[i] === 'l'){
+            rover.travelLog.push({ x: rover.x, y: rover.y, d: rover.direction })
             turnLeft(rover);
-            rover.travelLog.push('je tourne');
+            // rover.travelLog.push('je tourne');
         } else if (string[i] === 'r'){
+            rover.travelLog.push({ x: rover.x, y: rover.y, d: rover.direction })
             turnRight(rover)
-            rover.travelLog.push('je troune');
+            // rover.travelLog.push('je troune');
         } else if (string[i] === 'f'){
+            rover.travelLog.push({ x: rover.x, y: rover.y, d: rover.direction })
             moveForward(rover)
-            rover.travelLog.push('javance');
+            // rover.travelLog.push('javance');
             
         }
+        
     }   
 }
-pilotRover('lr');
-console.log(rover);
+// pilotRover('fffffffffffffff');
+// console.log(rover);
+
+console.log(process.argv);
+var result = pilotRover(process.argv[2]);
+console.log(result);
