@@ -60,16 +60,19 @@ function turnLeft(rover){
 
 function moveForward(rover){
     if (rover.direction === 'N'){
-        rover.y = rover.y + 1;
-        if (rover.y === -10 || rover.y === 1){
+        if ( rover.y === 0){
             console.log('erreur, tu sort de la zone sécurisé !!')
-        } else return rover
+        }else {
+            rover.y = rover.y + 1;
+        }
     }
     if (rover.direction === 'E'){
-        rover.x = rover.x + 1;
+        
         if (rover.x === 10 || rover.x === -1){
             console.log('erreur, tu sort de la zone sécurisé !!')
-        } else return rover
+        } else{
+            rover.x = rover.x + 1;
+        }
     }
     if (rover.direction === 'S'){
         rover.y = rover.y - 1;
@@ -111,4 +114,4 @@ function pilotRover(string){
 
 console.log(process.argv);
 var result = pilotRover(process.argv[2]);
-console.log(result);
+console.log(rover);
