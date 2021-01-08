@@ -110,10 +110,28 @@ function moveForward(robot) {
 	console.log(rover)
 }
 
-turnLeft(rover);
-moveForward(rover);
-turnRight(rover);
-moveForward(rover);
-console.log(rover)
+function pilotRover(string){
+	// UNE BOUCLE QUI VA PARCOURIR LE PARAMETRES MA FONCTION PILOTROVER 
+	for(var i = 0; i < string.length; i++ ){
+		//SI JE RENTRE  LA LETTRE "L" DANS LA FONCTION PILOT ROVER ALORS LA FONCTION TURNLEFT VA CE LANCER
+		if(string[i]=== "l"){
+			turnLeft(rover);
+			console.log(rover)
+		}
+		//SI JE RENTRE  LA LETTRE "R" DANS LA FONCTION PILOT ROVER ALORS LA FONCTION TURNRIGHT VA CE LANCER
+		else if(string[i]=== "r"){
+			turnRight(rover);
+		}
+		//SI JE RENTRE  LA LETTRE "F" DANS LA FONCTION PILOT ROVER ALORS LA FONCTION MOVEFORWARD VA CE LANCER
+		else if(string[i]=== "f"){
+			moveForward(rover);
+		}
+		// SINON MESSAGE D'ERREUR 
+		else{
+			console.log("CECI N'EST PAS UNE COMMANDE")
+		}
+	}
+}
+pilotRover("fffff")
 
   
